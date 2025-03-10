@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply font-sans;
+}
+
+
+@layer components {
+  div * {
+    /* @apply border-solid border border-red-600 box-border; */
+  }
+
+  .card-interactive {
+    @apply mt-4 p-4 flex justify-center rounded-md md:mx-8 bg-white shadow-sm transition ease-out hover:-translate-y-1 hover:scale-105 hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg duration-200
+  }
+
+  .card-basic {
+    @apply mt-4 p-5 flex justify-center rounded-md md:mx-8 bg-white shadow-sm
+  }
+
+  .button-primary {
+    @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 bg-white shadow-sm transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-subtle duration-150
+  }
+
+  .btn-primary-sharp {
+    @apply mt-3 p-2 px-4 flex justify-center rounded-[2px] border bg-white shadow-sm transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-subtle duration-150
+  }
+
+  .button-secondary {
+    @apply mt-3 p-2 px-4 flex justify-center rounded-md border border-secondary bg-white shadow-sm transition ease-out hover:scale-105 hover:bg-secondary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-secondary-subtle duration-150
+  }
+
+  .button-danger {
+    @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 border-danger text-black bg-white shadow-sm transition ease-out hover:scale-105 hover:bg-danger hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-danger-subtle duration-150
+  }
+
+  .btn-danger-outline {
+    @apply p-2 px-4 hover:ring-2 hover:ring-danger-subtle focus:bg-danger focus:ring-danger focus:text-white rounded-[5px] transition-all duration-150
+  }
+
+  .btn-primary-outline {
+    @apply p-2 px-4 hover:ring-2 hover:ring-primary-subtle focus:bg-primary focus:ring-primary focus:text-white rounded-[5px] transition-all duration-150
+  }
+}
+
+
+body {
+  @apply bg-gray-100 text-base font-normal;
+
+
+}
+
+html {
+  @apply font-sans;
+  
+
+  /* Adjust blend mode if necessary */
+}
+
+#brand {
+  background-image: url("/src/assets/images/img3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(0, 0, 0, 0.3);
+  /* Semi-transparent white overlay */
+  background-blend-mode: overlay;
+}
