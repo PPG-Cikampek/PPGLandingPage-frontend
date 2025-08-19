@@ -1,4 +1,4 @@
-const NewsView = () => {
+const ArticlesView = () => {
     return (
         <main className="main">
             <div className="max-w-6xl mt-6 mx-auto flex flex-col gap-4">
@@ -33,4 +33,4 @@ const NewsView = () => {
     );
 };
 
-export default NewsView;
+export default ArticlesView;
