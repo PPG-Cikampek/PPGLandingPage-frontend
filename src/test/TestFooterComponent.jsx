@@ -3,7 +3,7 @@ import React from 'react';
 // Modern footer with gradient and cards
 const ModernFooter = () => {
     return (
-        <footer className="mt-12 w-full bg-gradient-to-b from-white to-gray-50 pt-12 pb-8">
+        <footer className="mt-12 w-full bg-linear-to-b from-white to-gray-50 pt-12 pb-8">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="flex flex-row flex-wrap justify-between gap-8">
 
@@ -48,7 +48,7 @@ const ModernFooter = () => {
                             {/* <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-md focus:outline-hidden focus:ring-2 focus:ring-blue-500"
                             /> */}
                             <button className="btn-primary-sharp m-0">
                                 Kirim Email

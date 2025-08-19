@@ -120,9 +120,9 @@ const Carousel = ({
     }, [isPlaying, autoSlideInterval, nextSlide]);
 
     return (
-        <div className="relative w-full max-w-6xl mx-auto overflow-hidden md:rounded-3xl shadow-2xl ">
+        <div className="relative w-full max-w-6xl mx-auto overflow-hidden md:rounded-md shadow-2xl ">
             {/* Main carousel container */}
-            <div className="relative h-96 md:h-[32rem]">
+            <div className="relative h-96 md:h-128">
                 <div
                     className="absolute w-full h-full flex transition-transform duration-500 ease-in-out cursor-pointer"
                     style={{
@@ -141,14 +141,14 @@ const Carousel = ({
                                 className="object-cover w-full h-full"
                             />
                             {/* Content overlay */}
-                            {/* <div className="absolute bottom-0 w-full bg-gradient-to-t from-black/85 to-transparent p-6">
-                                <h3 className="text-2xl font-semibold text-white mb-2">
+                            <div className="absolute bottom-0 w-full bg-linear-to-t from-black/85 to-transparent p-6">
+                                <h3 className="text-white">
                                     {item.title}
                                 </h3>
                                 <p className="w-96 text-white/90 truncate">
                                     {item.description}
                                 </p>
-                            </div> */}
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -169,7 +169,7 @@ const Carousel = ({
                     <button
                         data-control="arrow"
                         onClick={nextSlide}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors z-10"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/30 hover:bg-white/50 hover:cursor-pointer transition-colors z-10"
                     >
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -182,7 +182,7 @@ const Carousel = ({
             <button
                 data-control="playback"
                 onClick={() => setIsPlaying(!isPlaying)}
-                className="absolute bottom-4 right-4 p-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors z-10"
+                className="absolute bottom-4 right-4 p-2 rounded-full bg-white/30 hover:bg-white/50 hover:cursor-pointer transition-colors z-10"
             >
                 {isPlaying ? (
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,7 +206,7 @@ const Carousel = ({
                             key={index}
                             data-control="dot"
                             onClick={() => goToSlide(index)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
+                            className={`w-2 h-2 rounded-full hover:cursor-pointer transition-all duration-300 ${index === currentIndex
                                 ? 'bg-white w-6'
                                 : 'bg-white/50 hover:bg-white/75'
                                 }`}

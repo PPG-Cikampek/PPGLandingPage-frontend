@@ -24,7 +24,7 @@ const WhatsAppFloat = () => {
         >
             {/* Tooltip */}
             {showTooltip && (
-                <div className="absolute bottom-full right-0 mb-2 bg-black text-white text-sm py-2 px-3 rounded whitespace-nowrap">
+                <div className="absolute bottom-full right-0 mb-2 bg-black text-white text-sm py-2 px-3 rounded-sm whitespace-nowrap">
                     Hubungi Kami via WhatsApp
                     {/* Tooltip arrow */}
                     <div className="absolute -bottom-1 right-5 w-2 h-2 bg-black transform rotate-45" />
@@ -34,7 +34,7 @@ const WhatsAppFloat = () => {
                 {/* WhatsApp Button */}
                 <button
                     onClick={handleClick}
-                    className="bg-green-500 hover:bg-green-600 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                    className="bg-green-500 hover:bg-green-600 p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:cursor-pointer flex items-center justify-center"
                     aria-label="Chat on WhatsApp"
                 >
                     {/* WhatsApp Logo SVG */}

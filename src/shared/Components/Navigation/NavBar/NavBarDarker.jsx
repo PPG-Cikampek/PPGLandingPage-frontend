@@ -24,10 +24,6 @@ const NavbarDarker = () => {
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
-
-        // localStorage.setItem('theme', newTheme);
-        // document.documentElement.classList.toggle('dark');
-
     }
 
     const navLinks = [
@@ -37,11 +33,11 @@ const NavbarDarker = () => {
     ];
 
     return (
-        <nav className="fixed top-0 z-20 bg-gradient-to-b from-primary/95 to-[#005e99]/80 shadow-md w-full">
+        <nav className="fixed top-0 z-20 bg-linear-to-b from-primary/95 to-[#005e99]/80 shadow-md w-full">
             <div className="max-w-6xl mx-4 lg:mx-auto">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <div className="flex flex-shrink-0 gap-2">
+                    <div className="flex shrink-0 gap-2">
                         <img src={logo} alt="Logo" className="h-8 w-auto" />
                         <span className="text-2xl font-semibold text-white">PPG Cikmapek</span>
                     </div>
@@ -79,7 +75,7 @@ const NavbarDarker = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={toggleMenu}
-                            className="p-1 rounded-full text-white border border-transparent font-normal hover:border-white focus:outline-none transition-colors duration-200"
+                            className="p-1 rounded-full text-white border border-transparent font-normal hover:border-white focus:outline-hidden transition-colors duration-200"
                             aria-expanded={isOpen}
                             aria-label="Toggle menu"
                         >

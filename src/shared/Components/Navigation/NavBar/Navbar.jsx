@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="max-w-6xl mx-4 lg:mx-auto">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <div className="flex flex-shrink-0 gap-2">
+                    <div className="flex shrink-0 gap-2">
                         <img src={logo} alt="Logo" className="h-8 w-auto" />
                         <span className="text-2xl font-semibold text-primary">PPG Cikmapek</span>
                     </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={toggleMenu}
-                            className="text-black hover:text-white focus:outline-none transition-colors duration-200"
+                            className="text-black hover:text-white focus:outline-hidden transition-colors duration-200"
                             aria-expanded={isOpen}
                             aria-label="Toggle menu"
                         >

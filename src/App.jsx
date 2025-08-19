@@ -1,38 +1,35 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from "react-router-dom";
 
-import LandingPageView from './landingPage/pages/LandingPageView';
-import Navbar from './shared/Components/Navigation/NavBar/Navbar';
-import CategoriesView from './news/pages/CategoriesView';
-import Footer from './shared/Components/Navigation/Footer/Footer';
-import NavbarDarker from './shared/Components/Navigation/NavBar/NavBarDarker';
-import WhatsAppFloat from './shared/Components/ExternalLinks/WhatsAppFloat';
+import HomePageView from "./homepage/pages/HomePageView";
+import NewsView from "./news/pages/NewsView";
+import Footer from "./shared/Components/Navigation/Footer/Footer";
+import NavbarDarker from "./shared/Components/Navigation/NavBar/NavBarDarker";
+import WhatsAppFloat from "./shared/Components/ExternalLinks/WhatsAppFloat";
 
+let routes = (
+    <Routes>
+        <Route path="/" element={<HomePageView />} />
+        <Route path="/categories" element={<NewsView />} />
+        <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
+);
 
 function App() {
+    return (
+        <Router>
+            <NavbarDarker />
+            <WhatsAppFloat />
 
-  let routes = (
-    <Routes>
-      <Route path='/' element={<LandingPageView />} />
-      <Route path='/categories' element={<CategoriesView />} />
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
-  )
+            {routes}
 
-  return (
-    <Router
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true
-      }}
-    >
-      {/* <Navbar /> */}
-      <NavbarDarker />
-      <WhatsAppFloat />
-      {routes}
-      <Footer />
-    </Router>
-  )
+            <Footer />
+        </Router>
+    );
 }
 
-export default App
+export default App;

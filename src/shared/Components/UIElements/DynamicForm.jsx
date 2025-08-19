@@ -27,14 +27,14 @@ const DynamicForm = ({ title, fields, onSubmit, footer }) => {
                             <textarea
                                 defaultValue={field.value || ''}
                                 {...register(field.name, { required: field.required })}
-                                className="w-full p-2 border rounded-md shadow-sm hover:ring-secondary-subtle focus:outline-none focus:ring-2 focus:ring-secondary transition-all duration-300"
+                                className="w-full p-2 border rounded-md shadow-xs hover:ring-secondary-subtle focus:outline-hidden focus:ring-2 focus:ring-secondary transition-all duration-300"
                             />
                         ) : (
                             <input
                                 type={field.type}
                                 defaultValue={field.value || ''}
                                 {...register(field.name, { required: field.required })}
-                                className="w-full p-2 border rounded-md shadow-sm hover:ring-secondary-subtle focus:outline-none focus:ring-2 focus:ring-secondary transition-all duration-300"
+                                className="w-full p-2 border rounded-md shadow-xs hover:ring-secondary-subtle focus:outline-hidden focus:ring-2 focus:ring-secondary transition-all duration-300"
                             />
                         )}
                         {errors[field.name] && (
