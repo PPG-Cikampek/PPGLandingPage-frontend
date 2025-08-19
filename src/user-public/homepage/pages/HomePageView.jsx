@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import Carousel from "../../shared/Components/UIElements/Carousel";
-import AnimatedComponent from "../../shared/Components/Animation/AnimatedComponent";
+import Carousel from "../../../shared/Components/UIElements/Carousel";
+import AnimatedComponent from "../../../shared/Components/Animation/AnimatedComponent";
 
 const HomePageView = () => {
     const { brand, cards } = useSelector((state) => state.homepage);
