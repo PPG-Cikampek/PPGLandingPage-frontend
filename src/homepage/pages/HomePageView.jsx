@@ -1,64 +1,50 @@
-import React, { useState } from "react";
-
 import Carousel from "../../shared/Components/UIElements/Carousel";
-
 import AnimatedComponent from "../../shared/Components/Animation/AnimatedComponent";
-
 import logo from "../../assets/logos/ppg.png";
-import { useEffect } from "react";
 
 const HomePageView = () => {
-    const [showComponent, setShowComponent] = useState(false);
-
-    React.useEffect(() => {
-        const timer = setTimeout(() => setShowComponent(true), 2000);
-        return () => clearTimeout(timer); // Clean up the timer
-    }, []);
-
     return (
         <main id="landing-page" className="main pt-0">
             <div id="brand" className="w-full min-h-[768px] md:min-h-[1024px]">
-                {showComponent && (
-                    <div className="pt-6 md:pt-24">
-                        <AnimatedComponent>
-                            <Carousel showDots={true} />
-                        </AnimatedComponent>
-                        <div className="my-12 p-4 flex flex-col items-center text-center md:text-start md:flex-row md:justify-center md:items-start gap-8">
-                            <AnimatedComponent animationType="slideInLeft">
-                                <div className="">
-                                    <img
-                                        src={logo}
-                                        alt=""
-                                        className="w-64 h-auto"
-                                    />
-                                </div>
-                            </AnimatedComponent>
-                            <div className="flex flex-col gap-4 text-white ">
-                                <AnimatedComponent animationType="slideInRight">
-                                    <h1 className="">PPG Cikampek</h1>
-                                </AnimatedComponent>
-                                <AnimatedComponent animationType="slideInRight">
-                                    <p className="max-w-96">
-                                        PPG, singkatan dari Penggerak Pembina
-                                        Generus, merupakan tim bertugas
-                                        menggerakkan, mensupervisi, dan
-                                        mendukung pelaksanaan pembinaan generus.{" "}
-                                    </p>
-                                </AnimatedComponent>
-                                <AnimatedComponent animationType="slideInRight">
-                                    <h2 className="">Visi</h2>
-                                </AnimatedComponent>
-                                <AnimatedComponent>
-                                    <ul>
-                                        <li>Visi 1</li>
-                                        <li>Visi 2</li>
-                                        <li>Visi 3</li>
-                                    </ul>
-                                </AnimatedComponent>
+                <div className="pt-6 md:pt-24">
+                    <AnimatedComponent>
+                        <Carousel showDots={true} />
+                    </AnimatedComponent>
+                    <div className="my-12 p-4 flex flex-col items-center text-center md:text-start md:flex-row md:justify-center md:items-start gap-8">
+                        <AnimatedComponent animationType="slideInLeft">
+                            <div className="">
+                                <img
+                                    src={logo}
+                                    alt=""
+                                    className="w-64 h-auto"
+                                />
                             </div>
+                        </AnimatedComponent>
+                        <div className="flex flex-col gap-4 text-white ">
+                            <AnimatedComponent animationType="slideInRight">
+                                <h1 className="">PPG Cikampek</h1>
+                            </AnimatedComponent>
+                            <AnimatedComponent animationType="slideInRight">
+                                <p className="max-w-96">
+                                    PPG, singkatan dari Penggerak Pembina
+                                    Generus, merupakan tim bertugas
+                                    menggerakkan, mensupervisi, dan mendukung
+                                    pelaksanaan pembinaan generus.{" "}
+                                </p>
+                            </AnimatedComponent>
+                            <AnimatedComponent animationType="slideInRight">
+                                <h2 className="">Visi</h2>
+                            </AnimatedComponent>
+                            <AnimatedComponent>
+                                <ul>
+                                    <li>Visi 1</li>
+                                    <li>Visi 2</li>
+                                    <li>Visi 3</li>
+                                </ul>
+                            </AnimatedComponent>
                         </div>
                     </div>
-                )}
+                </div>
             </div>
             <div className="max-w-6xl mt-6 mx-auto flex flex-col gap-4">
                 <AnimatedComponent animationType="zoomIn">
