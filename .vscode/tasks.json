@@ -4,9 +4,38 @@
         {
             "type": "npm",
             "script": "dev",
+            "label": "Frontend: Start Dev Server",
+            "detail": "vite --port 5173",
             "problemMatcher": [],
-            "label": "npm: dev",
-            "detail": "vite --port 5173"
+            "options": {
+                "cwd": "${workspaceFolder}/frontend"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "type": "npm",
+            "script": "dev",
+            "label": "Backend: Start Dev Server",
+            "detail": "npm run dev (backend)",
+            "problemMatcher": [],
+            "options": {
+                "cwd": "${workspaceFolder}/backend"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "Start Development (Frontend + Backend)",
+            "dependsOn": [
+                "Frontend: Start Dev Server",
+                "Backend: Start Dev Server"
+            ],
+            "problemMatcher": []
         }
     ]
 }
