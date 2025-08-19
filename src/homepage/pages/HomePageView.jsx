@@ -1,8 +1,10 @@
+import { useSelector } from "react-redux";
 import Carousel from "../../shared/Components/UIElements/Carousel";
 import AnimatedComponent from "../../shared/Components/Animation/AnimatedComponent";
-import logo from "../../assets/logos/ppg.png";
 
 const HomePageView = () => {
+    const { brand, cards } = useSelector((state) => state.homepage);
+
     return (
         <main id="landing-page" className="main pt-0">
             <div id="brand" className="w-full min-h-[768px] md:min-h-[1024px]">
@@ -14,7 +16,7 @@ const HomePageView = () => {
                         <AnimatedComponent animationType="slideInLeft">
                             <div className="">
                                 <img
-                                    src={logo}
+                                    src={brand?.logo}
                                     alt=""
                                     className="w-64 h-auto"
                                 />
@@ -22,24 +24,19 @@ const HomePageView = () => {
                         </AnimatedComponent>
                         <div className="flex flex-col gap-4 text-white ">
                             <AnimatedComponent animationType="slideInRight">
-                                <h1 className="">PPG Cikampek</h1>
+                                <h1 className="">{brand?.title}</h1>
                             </AnimatedComponent>
                             <AnimatedComponent animationType="slideInRight">
-                                <p className="max-w-96">
-                                    PPG, singkatan dari Penggerak Pembina
-                                    Generus, merupakan tim bertugas
-                                    menggerakkan, mensupervisi, dan mendukung
-                                    pelaksanaan pembinaan generus.{" "}
-                                </p>
+                                <p className="max-w-96">{brand?.description}</p>
                             </AnimatedComponent>
                             <AnimatedComponent animationType="slideInRight">
-                                <h2 className="">Visi</h2>
+                                <h2 className="">{brand?.visionTitle}</h2>
                             </AnimatedComponent>
                             <AnimatedComponent>
                                 <ul>
-                                    <li>Visi 1</li>
-                                    <li>Visi 2</li>
-                                    <li>Visi 3</li>
+                                    {brand?.visions?.map((v, i) => (
+                                        <li key={i}>{v}</li>
+                                    ))}
                                 </ul>
                             </AnimatedComponent>
                         </div>
@@ -47,40 +44,17 @@ const HomePageView = () => {
                 </div>
             </div>
             <div className="max-w-6xl mt-6 mx-auto flex flex-col gap-4">
-                <AnimatedComponent animationType="zoomIn">
-                    <section className="card-basic">
-                        <h2 className="">Judul 1</h2>
-                        <p className="">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Possimus, assumenda. Numquam ut itaque
-                            assumenda autem incidunt quos ad reiciendis rem
-                            nihil? Ex facilis neque architecto quas? Iusto
-                            explicabo veniam totam?
-                        </p>
-                    </section>
-                </AnimatedComponent>
-
-                <AnimatedComponent>
-                    <section className="card-basic">
-                        <h2 className="">Section 2</h2>
-                        <p className="">
-                            Each section maintains its own background with
-                            backdrop blur, creating a frosted glass effect over
-                            the stacked background images.
-                        </p>
-                    </section>
-                </AnimatedComponent>
-
-                <AnimatedComponent>
-                    <section className="card-basic">
-                        <h2 className="">Section 3</h2>
-                        <p className="">
-                            The background images are stacked with decreasing
-                            opacity, creating depth while maintaining content
-                            legibility.
-                        </p>
-                    </section>
-                </AnimatedComponent>
+                {cards?.map((card, idx) => (
+                    <AnimatedComponent
+                        key={idx}
+                        animationType={idx === 0 ? "zoomIn" : undefined}
+                    >
+                        <section className="card-basic">
+                            <h2 className="">{card.title}</h2>
+                            <p className="">{card.text}</p>
+                        </section>
+                    </AnimatedComponent>
+                ))}
             </div>
         </main>
     );
