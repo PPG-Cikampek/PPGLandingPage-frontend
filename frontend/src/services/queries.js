@@ -1,0 +1,27 @@
+import { useQuery } from "@tanstack/react-query";
+import api from "./api";
+
+// Query hook for brand data
+export const useBrandQuery = () => {
+    return useQuery({
+        queryKey: ["brand"],
+        queryFn: async () => {
+            const response = await api.get("/api/brand?populate=logo");
+            return response.data.data;
+        },
+        // staleTime: 5 * 60 * 1000, // 5 minutes
+        // refetchOnWindowFocus: true,
+        // retry: 3,
+    });
+};
+
+// Query hook for articles data
+export const useArticlesQuery = () => {
+    return useQuery({
+        queryKey: ["articles"],
+        queryFn: async () => {
+            const response = await api.get("/api/articles?populate=coverImage");
+            return response.data.data;
+        },
+    });
+};

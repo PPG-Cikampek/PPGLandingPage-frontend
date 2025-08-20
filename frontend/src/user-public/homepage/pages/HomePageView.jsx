@@ -1,41 +1,12 @@
-import { useEffect, useState } from "react";
 import Carousel from "../../../shared/Components/UIElements/Carousel";
 import AnimatedComponent from "../../../shared/Components/Animation/AnimatedComponent";
 import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
 import { latestNews } from "../../../data/latestNews";
+import { useBrandQuery } from "../../../services/queries";
 
 const HomePageView = () => {
-    const [brand, setBrand] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-    const [isError, setIsError] = useState(false);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        const fetchBrandData = async () => {
-            setIsLoading(true);
-            setIsError(false);
-            setError(null);
-            try {
-                const url = `${
-                    import.meta.env.VITE_API_BASE_URL
-                }/api/brand?populate=logo`;
-                console.log("Fetching brand data from:", url);
-                const response = await fetch(url);
-                const data = await response.json();
-                console.log("Brand data fetched:", data);
-                setBrand(data.data);
-            } catch (err) {
-                console.error("Error fetching brand data:", err);
-                setIsError(true);
-                // setError(err);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchBrandData();
-    }, []);
+    const { data: brand, isLoading, isError } = useBrandQuery();
 
     // Show loading state
     if (isLoading) {
@@ -106,7 +77,8 @@ const HomePageView = () => {
                 {latestNews?.map((card, idx) => (
                     <AnimatedComponent
                         key={idx}
-                        animationType={idx === 0 ? "zoomIn" : undefined}>
+                        animationType={idx === 0 ? "zoomIn" : undefined}
+                    >
                         <section className="card-basic">
                             <h2 className="">{card.title}</h2>
                             <p className="">{card.text}</p>
