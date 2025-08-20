@@ -9,7 +9,6 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
@@ -19,21 +18,24 @@
     "@strapi/plugin-cloud": "5.22.0",
     "@strapi/plugin-users-permissions": "5.22.0",
     "@strapi/strapi": "5.22.0",
-    "better-sqlite3": "^12.2.0",
-    "fs-extra": "^10.0.0",
-    "mime-types": "^2.1.27",
-    "pg": "8.8.0",
+    "better-sqlite3": "11.3.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
   "strapi": {
-    "uuid": "80b8e13c-de61-4f7b-8ad6-3f285167abaf",
-    "installId": "a0a52de9a9897b23e3336e82680b1511d67af3bcd3b5f9d89ca56b5f7853b927"
+    "uuid": "e3c03be3-49d5-48b1-b9f2-1f1cb0449acf",
+    "installId": "1b84acb84c3f33fbe89c59a93f2001db9716820286ca5322f62ee5f0cb08eb61"
   }
 }
