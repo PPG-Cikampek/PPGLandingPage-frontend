@@ -11,15 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "content": {
-      "type": "blocks"
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
@@ -29,6 +20,33 @@
         "videos",
         "audios"
       ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "viewCount": {
+      "type": "integer"
+    },
+    "publisher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::content-manager.content-manager",
+      "inversedBy": "publishedArticles"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::content-manager.content-manager",
+      "inversedBy": "createdArticles"
     }
   }
 }
