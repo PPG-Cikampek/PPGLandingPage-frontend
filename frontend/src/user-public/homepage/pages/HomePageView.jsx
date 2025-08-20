@@ -1,19 +1,41 @@
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import Carousel from "../../../shared/Components/UIElements/Carousel";
 import AnimatedComponent from "../../../shared/Components/Animation/AnimatedComponent";
-import { useBrandDataWithRedux } from "../../../hooks/useBrandDataWithRedux";
 import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
+import { latestNews } from "../../../data/latestNews";
 
 const HomePageView = () => {
-    const { latestNews } = useSelector((state) => state.homepage);
-    const {
-        brandData: brand,
-        isLoading,
-        isError,
-        error,
-        refetch,
-    } = useBrandDataWithRedux();
+    const [brand, setBrand] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchBrandData = async () => {
+            setIsLoading(true);
+            setIsError(false);
+            setError(null);
+            try {
+                const url = `${
+                    import.meta.env.VITE_API_BASE_URL
+                }/api/brand?populate=logo`;
+                console.log("Fetching brand data from:", url);
+                const response = await fetch(url);
+                const data = await response.json();
+                console.log("Brand data fetched:", data);
+                setBrand(data.data);
+            } catch (err) {
+                console.error("Error fetching brand data:", err);
+                setIsError(true);
+                // setError(err);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchBrandData();
+    }, []);
 
     // Show loading state
     if (isLoading) {
@@ -32,8 +54,7 @@ const HomePageView = () => {
             <main id="landing-page" className="main pt-0">
                 <div className="flex justify-center items-center min-h-screen p-4">
                     <ErrorCard
-                        error={error}
-                        onRetry={refetch}
+                        error={"error"}
                         message="Failed to load brand data. Using default content."
                     />
                 </div>
@@ -52,7 +73,9 @@ const HomePageView = () => {
                         <AnimatedComponent animationType="slideInLeft">
                             <div className="">
                                 <img
-                                    src={brand?.logo}
+                                    src={`${import.meta.env.VITE_API_BASE_URL}${
+                                        brand?.logo?.url
+                                    }`}
                                     alt={brand?.title || "Brand Logo"}
                                     className="w-64 h-auto"
                                 />
@@ -66,7 +89,7 @@ const HomePageView = () => {
                                 <p className="max-w-96">{brand?.description}</p>
                             </AnimatedComponent>
                             <AnimatedComponent animationType="slideInRight">
-                                <h2 className="">{brand?.visionTitle}</h2>
+                                <h2 className="">Visi</h2>
                             </AnimatedComponent>
                             <AnimatedComponent>
                                 <ul>
@@ -83,8 +106,7 @@ const HomePageView = () => {
                 {latestNews?.map((card, idx) => (
                     <AnimatedComponent
                         key={idx}
-                        animationType={idx === 0 ? "zoomIn" : undefined}
-                    >
+                        animationType={idx === 0 ? "zoomIn" : undefined}>
                         <section className="card-basic">
                             <h2 className="">{card.title}</h2>
                             <p className="">{card.text}</p>

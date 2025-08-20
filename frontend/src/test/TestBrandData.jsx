@@ -1,4 +1,4 @@
-import { useBrandDataWithRedux } from "../hooks/useBrandDataWithRedux";
+import { useBrandData } from "../hooks/useBrandData";
 
 const TestBrandData = () => {
     const {
@@ -8,8 +8,7 @@ const TestBrandData = () => {
         error,
         refetch,
         hasApiData,
-        isUsingFallback,
-    } = useBrandDataWithRedux();
+    } = useBrandData();
 
     return (
         <div
@@ -34,8 +33,8 @@ const TestBrandData = () => {
             <h3>Data Source:</h3>
             <p>
                 {hasApiData && "Using API data"}
-                {isUsingFallback && "Using fallback/default data"}
                 {isLoading && "Loading from API..."}
+                {!hasApiData && !isLoading && "No API data available"}
             </p>
 
             <h3>Actions:</h3>
@@ -60,7 +59,7 @@ const TestBrandData = () => {
             </pre>
 
             <h3>Logo Preview:</h3>
-            {brand.logo && (
+            {brand?.logo && (
                 <img
                     src={brand.logo}
                     alt="Brand Logo"

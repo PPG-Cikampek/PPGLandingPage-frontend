@@ -1,7 +1,13 @@
-import { useBrandData } from "../utils/queries";
+import { useBrandData } from "../hooks/useBrandData";
 
 const BrandDataDemo = () => {
-    const { data, isLoading, isError, error, refetch } = useBrandData();
+    const {
+        brandData: data,
+        isLoading,
+        isError,
+        error,
+        refetch,
+    } = useBrandData();
 
     if (isLoading) {
         return <div>Loading brand data...</div>;
