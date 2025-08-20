@@ -1,14 +1,56 @@
 import { useSelector } from "react-redux";
 import Carousel from "../../../shared/Components/UIElements/Carousel";
 import AnimatedComponent from "../../../shared/Components/Animation/AnimatedComponent";
+import { useBrandDataWithRedux } from "../../../hooks/useBrandDataWithRedux";
+import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
+import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
 
 const HomePageView = () => {
-    const { brand, cards } = useSelector((state) => state.homepage);
+    const { cards } = useSelector((state) => state.homepage);
+    const {
+        brandData: brand,
+        isLoading,
+        isError,
+        error,
+        refetch,
+        isUsingFallback,
+    } = useBrandDataWithRedux();
+
+    // Show loading state
+    if (isLoading) {
+        return (
+            <main id="landing-page" className="main pt-0">
+                <div className="flex justify-center items-center min-h-screen">
+                    <LoadingCircle />
+                </div>
+            </main>
+        );
+    }
+
+    // Show error state with fallback option
+    if (isError) {
+        return (
+            <main id="landing-page" className="main pt-0">
+                <div className="flex justify-center items-center min-h-screen p-4">
+                    <ErrorCard
+                        error={error}
+                        onRetry={refetch}
+                        message="Failed to load brand data. Using default content."
+                    />
+                </div>
+            </main>
+        );
+    }
 
     return (
         <main id="landing-page" className="main pt-0">
+            {isUsingFallback && (
+                <div className="bg-yellow-100 text-yellow-800 p-2 text-center text-sm">
+                    Using default content - API data unavailable
+                </div>
+            )}
             <div id="brand" className="w-full min-h-[768px] md:min-h-[1024px]">
-                <div className="pt-6 md:pt-24">
+                <div className="pt-16 md:pt-24">
                     <AnimatedComponent>
                         <Carousel showDots={true} />
                     </AnimatedComponent>
@@ -17,7 +59,7 @@ const HomePageView = () => {
                             <div className="">
                                 <img
                                     src={brand?.logo}
-                                    alt=""
+                                    alt={brand?.title || "Brand Logo"}
                                     className="w-64 h-auto"
                                 />
                             </div>

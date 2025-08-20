@@ -1,10 +1,13 @@
+// DEPRECATED: This file is being replaced by apiService.js and queries.js for React Query
+// Keeping for reference during migration
+
 import axios from "axios";
 
 // Create axios instance with default config
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_BASE_URL
         ? `${import.meta.env.VITE_API_BASE_URL}/api`
-        : "/api",
+        : "http://localhost:1337/api",
     timeout: 10000,
     headers: {
         "Content-Type": "application/json",
@@ -38,5 +41,10 @@ api.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
+// DEPRECATED: Use useBrandData() hook from queries.js instead
+export const homepageApi = {
+    fetchBrandData: () => api.get("/brand?populate=*"),
+};
 
 export default api;

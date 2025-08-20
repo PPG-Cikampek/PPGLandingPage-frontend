@@ -29,9 +29,22 @@ const initialState = {
 const homepageSlice = createSlice({
     name: "homepage",
     initialState,
-    reducers: {},
+    reducers: {
+        updateBrandData: (state, action) => {
+            // Merge API data with local defaults
+            state.brand = {
+                ...state.brand,
+                ...action.payload,
+                // Keep local logo if API doesn't provide one
+                logo: action.payload.logo || state.brand.logo,
+            };
+        },
+        resetBrandData: (state) => {
+            state.brand = initialState.brand;
+        },
+    },
 });
 
-export const {} = homepageSlice.actions;
+export const { updateBrandData, resetBrandData } = homepageSlice.actions;
 
 export default homepageSlice.reducer;
