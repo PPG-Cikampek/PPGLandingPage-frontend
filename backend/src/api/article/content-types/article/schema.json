@@ -30,9 +30,6 @@
     "address": {
       "type": "string"
     },
-    "content": {
-      "type": "blocks"
-    },
     "viewCount": {
       "type": "integer"
     },
