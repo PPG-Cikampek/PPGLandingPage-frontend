@@ -29,6 +29,7 @@
     "strapi-5-plugin-responsive-backend": "^0.0.4",
     "strapi-advanced-uuid": "^2.1.1",
     "strapi-csv-import-export": "^0.0.6",
+    "strapi-location-picker": "^0.0.2",
     "strapi-plugin-entity-relationship-chart": "^3.1.0",
     "strapi-plugin-multi-select": "^2.1.1",
     "styled-components": "^6.0.0"

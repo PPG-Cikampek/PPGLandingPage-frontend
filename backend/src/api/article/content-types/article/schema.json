@@ -14,6 +14,7 @@
     "coverImage": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -22,16 +23,32 @@
       ]
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "string"
     },
     "address": {
-      "type": "string"
+      "type": "customField",
+      "customField": "plugin::strapi-location-picker.location-picker",
+      "options": {
+        "info": true
+      }
     },
-    "viewCount": {
-      "type": "integer"
+    "content": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::content-manager.content-manager",
+      "inversedBy": "createdArticles"
     },
     "publisher": {
       "type": "relation",
@@ -39,11 +56,8 @@
       "target": "api::content-manager.content-manager",
       "inversedBy": "publishedArticles"
     },
-    "author": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::content-manager.content-manager",
-      "inversedBy": "createdArticles"
+    "viewCount": {
+      "type": "integer"
     }
   }
 }
