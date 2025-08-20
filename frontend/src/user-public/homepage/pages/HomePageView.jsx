@@ -3,13 +3,23 @@ import AnimatedComponent from "../../../shared/Components/Animation/AnimatedComp
 import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
 import { latestNews } from "../../../data/latestNews";
-import { useBrandQuery } from "../../../services/queries";
+import { useArticlesQuery, useBrandQuery } from "../../../services/queries";
 
 const HomePageView = () => {
-    const { data: brand, isLoading, isError } = useBrandQuery();
+    const {
+        data: brand,
+        isLoading: brandLoading,
+        isError: brandError,
+    } = useBrandQuery();
+
+    const {
+        data: articles,
+        isLoading: articlesLoading,
+        isError: articlesError,
+    } = useArticlesQuery();
 
     // Show loading state
-    if (isLoading) {
+    if (brandLoading || articlesLoading) {
         return (
             <main id="landing-page" className="main pt-0">
                 <div className="flex justify-center items-center min-h-screen">
@@ -20,7 +30,7 @@ const HomePageView = () => {
     }
 
     // Show error state with fallback option
-    if (isError) {
+    if (brandError || articlesError) {
         return (
             <main id="landing-page" className="main pt-0">
                 <div className="flex justify-center items-center min-h-screen p-4">
@@ -73,16 +83,19 @@ const HomePageView = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-6xl mt-6 mx-auto flex flex-col gap-4">
-                {latestNews?.map((card, idx) => (
+            <div className="w-6xl mt-6 mx-auto flex flex-col items-stretch gap-4">
+                {articles?.map((article, idx) => (
+                    // {latestNews?.map((article, idx) => (
                     <AnimatedComponent
                         key={idx}
                         animationType={idx === 0 ? "zoomIn" : undefined}
                     >
-                        <section className="card-basic">
-                            <h2 className="">{card.title}</h2>
-                            <p className="">{card.text}</p>
-                        </section>
+                        <div className="card-basic">
+                            <h2 className="">{article.title}</h2>
+                            <p className="">
+                                {article.text || article.description}
+                            </p>
+                        </div>
                     </AnimatedComponent>
                 ))}
             </div>

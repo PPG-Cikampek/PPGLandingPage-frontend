@@ -20,7 +20,9 @@ export const useArticlesQuery = () => {
     return useQuery({
         queryKey: ["articles"],
         queryFn: async () => {
-            const response = await api.get("/api/articles?populate=coverImage");
+            const response = await api.get(
+                "/api/articles?sort[0]=publishedAt:desc&populate[coverImage][fields][0]=formats&fields[0]=title&fields[1]=description&pagination[pageSize]=5&pagination[page]=1&filters[publishedAt][$notNull]=true"
+            );
             return response.data.data;
         },
     });

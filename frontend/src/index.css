@@ -1,54 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Public+Sans:wght@400;700&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Public+Sans:wght@400;700&display=swap");
+@import "tailwindcss";
 
 @theme {
-  --color-primary: #008ee6;
-  --color-primary-subtle: #e5e7eb;
-  --color-secondary: #facc15;
-  --color-secondary-subtle: #fef08a;
-  --color-danger: #ef4444;
-  --color-danger-subtle: #fca5a5;
+    --color-primary: #008ee6;
+    --color-primary-subtle: #e5e7eb;
+    --color-secondary: #facc15;
+    --color-secondary-subtle: #fef08a;
+    --color-danger: #ef4444;
+    --color-danger-subtle: #fca5a5;
 
-  --font-display: "Inter", "sans-serif";
+    --font-display: "Inter", "sans-serif";
 }
 
-
 div * {
-  /* @apply border-solid border border-red-600 box-border; */
+    /* @apply border-solid border border-red-600 box-border; */
 }
 
 #root {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  height: 100%;
-  -webkit-text-size-adjust: 100%;
-  @apply bg-gray-100 text-base font-display;
-
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    @apply bg-gray-100 text-base font-display;
 }
 
 h1 {
-  @apply text-3xl font-semibold mb-4
+    @apply text-3xl font-semibold mb-4;
 }
 
-
 h2 {
-  @apply text-2xl font-semibold mb-4
+    @apply text-2xl font-semibold mb-4;
 }
 
 h3 {
-  @apply text-xl font-semibold mb-2
+    @apply text-xl font-semibold mb-2;
 }
 
 p {
-  @apply text-base mb-2
+    @apply text-base mb-2;
 }
 
 @utility main {
-  @apply min-h-screen w-full flex flex-col pt-24;
+    @apply min-h-screen w-full flex flex-col pt-24;
 }
-
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -59,53 +55,52 @@ p {
   color utility to any element that depends on these defaults.
 */
 @layer base {
-
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
 
 @utility card-interactive {
-  @apply mt-4 p-4 flex justify-center rounded-md md:mx-8 bg-white shadow-xs transition ease-out hover:-translate-y-1 hover:scale-105 hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg duration-200;
+    @apply mt-4 p-4 flex justify-center rounded-md md:mx-8 bg-white shadow-xs transition ease-out hover:-translate-y-1 hover:scale-105 hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg duration-200;
 }
 
 @utility card-basic {
-  @apply mt-4 p-5 flex flex-col justify-center rounded-md md:mx-8 bg-white shadow-xs;
+    @apply mt-4 p-5 w-full flex flex-col justify-center rounded-md md:mx-8 bg-white shadow-xs;
 }
 
 @utility button-primary {
-  @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 bg-white shadow-xs transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary-subtle duration-150;
+    @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 bg-white shadow-xs transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary-subtle duration-150;
 }
 
 @utility btn-primary-sharp {
-  @apply mt-3 p-2 px-4 flex justify-center rounded-[2px] border bg-white shadow-xs transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary-subtle duration-150;
+    @apply mt-3 p-2 px-4 flex justify-center rounded-[2px] border bg-white shadow-xs transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary-subtle duration-150;
 }
 
 @utility button-secondary {
-  @apply mt-3 p-2 px-4 flex justify-center rounded-md border border-secondary bg-white shadow-xs transition ease-out hover:scale-105 hover:bg-secondary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-secondary-subtle duration-150;
+    @apply mt-3 p-2 px-4 flex justify-center rounded-md border border-secondary bg-white shadow-xs transition ease-out hover:scale-105 hover:bg-secondary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-secondary-subtle duration-150;
 }
 
 @utility button-danger {
-  @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 border-danger text-black bg-white shadow-xs transition ease-out hover:scale-105 hover:bg-danger hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-danger-subtle duration-150;
+    @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 border-danger text-black bg-white shadow-xs transition ease-out hover:scale-105 hover:bg-danger hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-danger-subtle duration-150;
 }
 
 @utility btn-danger-outline {
-  @apply p-2 px-4 hover:ring-2 hover:ring-danger-subtle focus:bg-danger focus:ring-danger focus:text-white rounded-[5px] transition-all duration-150;
+    @apply p-2 px-4 hover:ring-2 hover:ring-danger-subtle focus:bg-danger focus:ring-danger focus:text-white rounded-[5px] transition-all duration-150;
 }
 
 @utility btn-primary-outline {
-  @apply p-2 px-4 hover:ring-2 hover:ring-primary-subtle focus:bg-primary focus:ring-primary focus:text-white rounded-[5px] transition-all duration-150;
+    @apply p-2 px-4 hover:ring-2 hover:ring-primary-subtle focus:bg-primary focus:ring-primary focus:text-white rounded-[5px] transition-all duration-150;
 }
 
 #brand {
-  background-image: url("/src/assets/images/img3.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgb(0, 0, 0, 0.3);
-  /* Semi-transparent white overlay */
-  background-blend-mode: overlay;
+    background-image: url("/src/assets/images/img3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 0, 0.3);
+    /* Semi-transparent white overlay */
+    background-blend-mode: overlay;
 }
