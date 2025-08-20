@@ -6,14 +6,13 @@ import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
 
 const HomePageView = () => {
-    const { cards } = useSelector((state) => state.homepage);
+    const { latestNews } = useSelector((state) => state.homepage);
     const {
         brandData: brand,
         isLoading,
         isError,
         error,
         refetch,
-        isUsingFallback,
     } = useBrandDataWithRedux();
 
     // Show loading state
@@ -44,11 +43,6 @@ const HomePageView = () => {
 
     return (
         <main id="landing-page" className="main pt-0">
-            {isUsingFallback && (
-                <div className="bg-yellow-100 text-yellow-800 p-2 text-center text-sm">
-                    Using default content - API data unavailable
-                </div>
-            )}
             <div id="brand" className="w-full min-h-[768px] md:min-h-[1024px]">
                 <div className="pt-16 md:pt-24">
                     <AnimatedComponent>
@@ -86,7 +80,7 @@ const HomePageView = () => {
                 </div>
             </div>
             <div className="max-w-6xl mt-6 mx-auto flex flex-col gap-4">
-                {cards?.map((card, idx) => (
+                {latestNews?.map((card, idx) => (
                     <AnimatedComponent
                         key={idx}
                         animationType={idx === 0 ? "zoomIn" : undefined}

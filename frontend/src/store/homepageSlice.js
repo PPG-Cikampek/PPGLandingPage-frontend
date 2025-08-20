@@ -1,16 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import logo from "../assets/logos/ppg.png";
 
 const initialState = {
-    brand: {
-        logo,
-        title: "PPG Cikampek",
-        description:
-            "PPG, singkatan dari Penggerak Pembina Generus, merupakan tim bertugas menggerakkan, mensupervisi, dan mendukung pelaksanaan pembinaan generus.",
-        visionTitle: "Visi",
-        visions: ["Visi 1", "Visi 2", "Visi 3"],
-    },
-    cards: [
+    // Brand initial data removed — brand will be populated from API at runtime
+    latestNews: [
         {
             title: "Judul 1",
             text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus, assumenda. Numquam ut itaque assumenda autem incidunt quos ad reiciendis rem nihil? Ex facilis neque architecto quas? Iusto explicabo veniam totam?",
@@ -31,16 +23,15 @@ const homepageSlice = createSlice({
     initialState,
     reducers: {
         updateBrandData: (state, action) => {
-            // Merge API data with local defaults
+            // Overwrite or merge brand data from API. No local static defaults are used.
             state.brand = {
                 ...state.brand,
                 ...action.payload,
-                // Keep local logo if API doesn't provide one
-                logo: action.payload.logo || state.brand.logo,
             };
         },
         resetBrandData: (state) => {
-            state.brand = initialState.brand;
+            // Clear brand data when resetting (no local defaults to restore)
+            state.brand = null;
         },
     },
 });
