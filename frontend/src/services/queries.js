@@ -27,3 +27,18 @@ export const useArticlesQuery = () => {
         },
     });
 };
+
+// Query hook for a single article by id or documentId
+export const useArticleQuery = (documentId) => {
+    return useQuery({
+        queryKey: ["article", documentId],
+        enabled: !!documentId,
+        queryFn: async () => {
+            const endpoint = `/api/articles/${documentId}?populate=*`;
+            const response = await api.get(endpoint);
+            // Strapi-like responses return data as an array for list endpoints; return first item
+            const data = response.data.data;
+            return Array.isArray(data) ? data[0] : data;
+        },
+    });
+};

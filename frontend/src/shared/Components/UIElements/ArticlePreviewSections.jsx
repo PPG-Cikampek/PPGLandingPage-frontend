@@ -84,9 +84,11 @@ export const MagazineHeroSection = ({ articles = [] }) => {
                 <div className="space-y-4">
                     {sideArticles.map((article, index) => (
                         <div
-                            key={article?.id || index}
+                            key={article?.documentId || index}
                             className="group cursor-pointer bg-white  shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
-                            onClick={() => navigate(`/articles/${article?.id}`)}
+                            onClick={() =>
+                                navigate(`/articles/${article?.documentId}`)
+                            }
                         >
                             <div className="flex">
                                 <div className="w-24 h-24 flex-shrink-0">
@@ -180,14 +182,16 @@ export const DiagonalTimelineSection = ({ articles = [] }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
                     {articles.slice(0, 6).map((article, index) => (
                         <div
-                            key={article?.id || index}
+                            key={article?.documentId || index}
                             className={`group cursor-pointer transform transition-all duration-500 hover:scale-105 ${
                                 index % 2 === 0
                                     ? "md:translate-y-0"
                                     : "md:translate-y-8"
                             }`}
                             style={{ animationDelay: `${index * 100}ms` }}
-                            onClick={() => navigate(`/articles/${article?.id}`)}
+                            onClick={() =>
+                                navigate(`/articles/${article?.documentId}`)
+                            }
                         >
                             <div className="bg-white  shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
                                 <div className="relative h-48 overflow-hidden">
@@ -261,11 +265,13 @@ export const HexagonalGridSection = ({ articles = [] }) => {
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
                     {articles.slice(0, 7).map((article, index) => (
                         <div
-                            key={article?.id || index}
+                            key={article?.documentId || index}
                             className={`relative group cursor-pointer transition-all duration-300 hover:z-10 ${
                                 index === 0 ? "col-span-2 row-span-2" : ""
                             } ${index % 3 === 1 ? "md:translate-y-8" : ""}`}
-                            onClick={() => navigate(`/articles/${article?.id}`)}
+                            onClick={() =>
+                                navigate(`/articles/${article?.documentId}`)
+                            }
                         >
                             <div className="hexagon-container relative overflow-hidden group-hover:scale-110 transition-transform duration-300">
                                 <div
@@ -417,7 +423,7 @@ export const FloatingBubblesSection = ({ articles = [] }) => {
 
                 {articles.slice(0, 6).map((article, index) => (
                     <div
-                        key={article?.id || index}
+                        key={article?.documentId || index}
                         className={`absolute group cursor-pointer transition-all duration-500 ${bubbleSizes[index]} ${bubblePositions[index]}`}
                         style={{
                             animation: `float-${index} ${
@@ -427,7 +433,9 @@ export const FloatingBubblesSection = ({ articles = [] }) => {
                         }}
                         onMouseEnter={() => setHoveredIndex(index)}
                         onMouseLeave={() => setHoveredIndex(null)}
-                        onClick={() => navigate(`/articles/${article?.id}`)}
+                        onClick={() =>
+                            navigate(`/articles/${article?.documentId}`)
+                        }
                     >
                         <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl group-hover:shadow-3xl transition-shadow duration-300 border-4 border-white">
                             <img
@@ -612,7 +620,7 @@ export const Carousel3DSection = ({ articles = [] }) => {
 
                                 return (
                                     <div
-                                        key={article?.id || index}
+                                        key={article?.documentId || index}
                                         className="absolute w-64 h-80 cursor-pointer group"
                                         style={{
                                             transform: `rotateY(${angle}deg) translateZ(300px) ${
@@ -624,7 +632,9 @@ export const Carousel3DSection = ({ articles = [] }) => {
                                                 "transform 0.5s ease-in-out",
                                         }}
                                         onClick={() =>
-                                            navigate(`/articles/${article?.id}`)
+                                            navigate(
+                                                `/articles/${article?.documentId}`
+                                            )
                                         }
                                     >
                                         <div className="w-full h-full bg-white  shadow-2xl overflow-hidden transform-gpu backface-hidden">
@@ -775,9 +785,11 @@ export const InfiniteScrollSection = ({ articles = [] }) => {
                 >
                     {duplicatedArticles.map((article, index) => (
                         <div
-                            key={`${article?.id || "article"}-${index}`}
+                            key={`${article?.documentId || "article"}-${index}`}
                             className="flex-shrink-0 w-80 group cursor-pointer transform transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-                            onClick={() => navigate(`/articles/${article?.id}`)}
+                            onClick={() =>
+                                navigate(`/articles/${article?.documentId}`)
+                            }
                         >
                             <div className="bg-white  shadow-lg overflow-hidden border border-gray-200 hover:shadow-2xl transition-shadow duration-300">
                                 <div className="relative h-48 overflow-hidden">

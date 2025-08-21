@@ -27,7 +27,7 @@ const ArticleCard = ({ article, id, variant = "default" }) => {
         const shareUrl =
             window.location.origin +
             window.location.pathname +
-            `#${id || article?.id || "article"}`;
+            `#${id || article?.documentId || "article"}`;
 
         if (navigator.share) {
             try {
@@ -116,7 +116,9 @@ const ArticleCard = ({ article, id, variant = "default" }) => {
                             <button
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    navigate(`/articles/${article?.id || id}`);
+                                    navigate(
+                                        `/articles/${article?.documentId || id}`
+                                    );
                                 }}
                                 className="button-secondary"
                             >
@@ -168,7 +170,9 @@ const ArticleCard = ({ article, id, variant = "default" }) => {
                         </button>
                         <button
                             onClick={() =>
-                                navigate(`/articles/${article?.id || id}`)
+                                navigate(
+                                    `/articles/${article?.documentId || id}`
+                                )
                             }
                             className="px-3 py-1 rounded-full bg-white/20 hover:bg-white/40 text-white"
                         >
@@ -225,7 +229,9 @@ const ArticleCard = ({ article, id, variant = "default" }) => {
                         </button>
                         <button
                             onClick={() =>
-                                navigate(`/articles/${article?.id || id}`)
+                                navigate(
+                                    `/articles/${article?.documentId || id}`
+                                )
                             }
                             className="px-3 py-1 rounded bg-blue-100 hover:bg-blue-200"
                         >
@@ -272,7 +278,7 @@ const ArticleCard = ({ article, id, variant = "default" }) => {
                     </button>
                     <button
                         onClick={() =>
-                            navigate(`/articles/${article?.id || id}`)
+                            navigate(`/articles/${article?.documentId || id}`)
                         }
                         className="px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 text-xs"
                     >
@@ -324,7 +330,9 @@ const ArticleCard = ({ article, id, variant = "default" }) => {
                         </button>
                         <button
                             onClick={() =>
-                                navigate(`/articles/${article?.id || id}`)
+                                navigate(
+                                    `/articles/${article?.documentId || id}`
+                                )
                             }
                             className="px-3 py-1 rounded bg-white/70 hover:bg-white"
                         >

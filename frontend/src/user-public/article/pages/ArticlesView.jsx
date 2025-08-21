@@ -36,7 +36,7 @@ const ArticlesView = () => {
                 {articles && articles.length > 0 ? (
                     articles.map((article, index) => (
                         <section
-                            key={article.id || index}
+                            key={article.documentId || index}
                             className="card-basic"
                         >
                             <h2 className="text-2xl font-semibold mb-4">
