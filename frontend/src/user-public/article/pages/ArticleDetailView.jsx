@@ -1,13 +1,13 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useArticleQuery } from "../../../services/queries";
 import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
 import formatDateIndo from "@/shared/utils/date";
+import BackButton from "@/shared/Components/UIElements/BackButton";
 
 const ArticleDetailView = () => {
     const { documentId } = useParams();
-    const navigate = useNavigate();
 
     // Try to use documentId if it looks like a non-numeric string
     const {
@@ -80,12 +80,7 @@ const ArticleDetailView = () => {
     return (
         <main className="main">
             <div className="max-w-4xl mx-auto mb-24 px-6 ">
-                <button
-                    className="text-sm text-primary mb-4"
-                    onClick={() => navigate(-1)}
-                >
-                    &larr; Back
-                </button>
+                <BackButton />
 
                 <article className="prose lg:prose-xl">
                     <h1>{article.title}</h1>
