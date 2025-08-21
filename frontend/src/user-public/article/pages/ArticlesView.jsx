@@ -5,29 +5,31 @@ const ArticlesView = () => {
     // Example of how to use React Query for fetching articles
     // Uncomment and use this if you want to fetch real articles from the API
 
-    if (isLoading) {
-        return (
-            <main className="main">
-                <div className="flex justify-center items-center min-h-screen">
-                    <LoadingCircle />
-                </div>
-            </main>
-        );
-    }
+    const articles = [];
 
-    if (isError) {
-        return (
-            <main className="main">
-                <div className="flex justify-center items-center min-h-screen p-4">
-                    <ErrorCard
-                        error={error}
-                        onRetry={refetch}
-                        message="Failed to load articles."
-                    />
-                </div>
-            </main>
-        );
-    }
+    // if (isLoading) {
+    //     return (
+    //         <main className="main">
+    //             <div className="flex justify-center items-center min-h-screen">
+    //                 <LoadingCircle />
+    //             </div>
+    //         </main>
+    //     );
+    // }
+
+    // if (isError) {
+    //     return (
+    //         <main className="main">
+    //             <div className="flex justify-center items-center min-h-screen p-4">
+    //                 <ErrorCard
+    //                     error={error}
+    //                     onRetry={refetch}
+    //                     message="Failed to load articles."
+    //                 />
+    //             </div>
+    //         </main>
+    //     );
+    // }
 
     return (
         <main className="main">

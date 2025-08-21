@@ -10,7 +10,7 @@ import ArticlesView from "./user-public/article/pages/ArticlesView";
 import ArticleDetailView from "./user-public/article/pages/ArticleDetailView";
 import ArticlePreviewDemo from "./test/ArticlePreviewDemo";
 import Footer from "./shared/Components/Navigation/Footer/Footer";
-import NavbarDarker from "./shared/Components/Navigation/NavBar/NavBarDarker";
+import Navbar from "./shared/Components/Navigation/NavBar/NavBar";
 import WhatsAppFloat from "./shared/Components/ExternalLinks/WhatsAppFloat";
 
 let routes = (
@@ -26,7 +26,7 @@ let routes = (
 function App() {
     return (
         <Router>
-            <NavbarDarker />
+            <Navbar />
             <WhatsAppFloat />
 
             {routes}

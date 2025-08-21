@@ -1,13 +1,12 @@
+import React, { useState, useRef, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-
-import logo from '../../../../assets/logos/ppg.png'
+import logo from "../../../../assets/logos/ppg.png";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [theme, setTheme] = useState('light');
+    const [theme, setTheme] = useState("light");
     const [menuHeight, setMenuHeight] = useState(0);
     const menuRef = useRef(null);
 
@@ -22,28 +21,26 @@ const Navbar = () => {
     };
 
     const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
+        const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
-
-        // localStorage.setItem('theme', newTheme);
-        // document.documentElement.classList.toggle('dark');
-
-    }
+    };
 
     const navLinks = [
-        { id: 1, name: 'Home', path: '/' },
-        { id: 2, name: 'Kategori', path: '/categories' },
-        { id: 3, name: 'Sistem Akademik', path: 'http://localhost:3000/' },
+        { id: 1, name: "Home", path: "/" },
+        { id: 2, name: "Bidang PPG", path: "/categories" },
+        { id: 3, name: "Sistem Akademik", path: "http://localhost:3000/" },
     ];
 
     return (
-        <nav className="bg-white shadow-md">
+        <nav className="fixed top-0 z-20 bg-linear-to-b from-primary/95 to-[#005e99]/80 shadow-md w-full">
             <div className="max-w-6xl mx-4 lg:mx-auto">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex shrink-0 gap-2">
                         <img src={logo} alt="Logo" className="h-8 w-auto" />
-                        <span className="text-2xl font-semibold text-primary">PPG Cikmapek</span>
+                        <span className="text-2xl font-semibold text-white">
+                            PPG Cikmapek
+                        </span>
                     </div>
 
                     {/* Desktop Navigation */}
@@ -53,9 +50,10 @@ const Navbar = () => {
                                 key={link.id}
                                 to={link.path}
                                 className={({ isActive }) =>
-                                    `block box-border my-auto px-3 text-base font-medium transition duration-200 ${isActive
-                                        ? 'py-[18px] border-b-4 border-primary'
-                                        : 'py-[19px] hover:ring-1 hover:ring-primary-subtle'
+                                    `block box-border text-white my-auto px-3 text-base font-normal transition duration-200 ${
+                                        isActive
+                                            ? "py-[18px] border-b-4 border-white"
+                                            : "py-[19px] hover:ring-1 hover:ring-primary-subtle"
                                     }`
                                 }
                             >
@@ -64,13 +62,13 @@ const Navbar = () => {
                         ))}
                         <button
                             onClick={toggleTheme}
-                            className="p-2 rounded-md self-center dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
+                            className="p-2 rounded-md self-center dark:bg-gray-800 border border-transparent hover:border-white dark:hover:bg-gray-700 transition-colors duration-300"
                             aria-label="Toggle theme"
                         >
-                            {theme === 'light' ? (
-                                <Moon className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+                            {theme === "light" ? (
+                                <Moon className="w-5 h-5 text-gray-200  dark:text-gray-800" />
                             ) : (
-                                <Sun className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+                                <Sun className="w-5 h-5 text-gray-200  dark:text-gray-800" />
                             )}
                         </button>
                     </div>
@@ -79,7 +77,7 @@ const Navbar = () => {
                     <div className="md:hidden flex items-center">
                         <button
                             onClick={toggleMenu}
-                            className="text-black hover:text-white focus:outline-hidden transition-colors duration-200"
+                            className="p-1 rounded-full text-white border border-transparent font-normal hover:border-white focus:outline-hidden transition-colors duration-200"
                             aria-expanded={isOpen}
                             aria-label="Toggle menu"
                         >
@@ -100,9 +98,10 @@ const Navbar = () => {
                                 key={link.id}
                                 to={link.path}
                                 className={({ isActive }) =>
-                                    `block px-3 py-2 rounded-[3px] text-base font-medium transition-colors duration-200 ${isActive
-                                        ? 'text-white bg-primary'
-                                        : 'text-gray-700 hover:text-white hover:bg-primary'
+                                    `block px-3 py-2 rounded-[3px] text-base font-medium transition-colors duration-200 ${
+                                        isActive
+                                            ? "text-black bg-white"
+                                            : "text-white hover:text-white hover:bg-primary"
                                     }`
                                 }
                                 onClick={() => setIsOpen(false)}
