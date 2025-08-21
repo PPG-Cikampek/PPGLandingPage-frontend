@@ -3,9 +3,17 @@
 
 @theme {
     --color-primary: #008ee6;
+    --color-primary-dark: #005e99;
     --color-primary-subtle: #e5e7eb;
+
     --color-secondary: #facc15;
+    --color-secondary-dark: #5e4b00;
     --color-secondary-subtle: #fef08a;
+
+    --color-tertiary: #f97316;
+    --color-tertiary-dark: #c2410c;
+    --color-tertiary-subtle: #fdba74;
+
     --color-danger: #ef4444;
     --color-danger-subtle: #fca5a5;
 
@@ -65,15 +73,15 @@ p {
 }
 
 @utility card-interactive {
-    @apply mt-4 p-4 flex justify-center rounded-md md:mx-8 bg-white shadow-xs transition ease-out hover:-translate-y-1 hover:scale-105 hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg duration-200;
+    @apply mt-4 p-4 flex justify-center md:mx-8 bg-white shadow-xs transition ease-out hover:-translate-y-1 hover:scale-105 hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg duration-200;
 }
 
 @utility card-basic {
-    @apply mt-4 p-5 w-full flex flex-col justify-center rounded-md md:mx-8 bg-white shadow-xs;
+    @apply mt-4 p-5 w-full flex flex-col justify-center md:mx-8 bg-white shadow-xs;
 }
 
 @utility button-primary {
-    @apply mt-3 p-2 px-4 flex justify-center rounded-md border-2 bg-white shadow-xs transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary-subtle duration-150;
+    @apply mt-3 p-2 px-4 flex justify-center border-2 bg-white shadow-xs transition ease-out hover:scale-[1.025] hover:bg-primary hover:text-white hover:cursor-pointer hover:shadow-lg focus:outline-hidden focus:ring-2 focus:ring-primary-subtle duration-150;
 }
 
 @utility btn-primary-sharp {

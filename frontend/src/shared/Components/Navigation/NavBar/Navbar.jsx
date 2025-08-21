@@ -32,7 +32,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="fixed top-0 z-20 bg-linear-to-b from-primary/95 to-[#005e99]/80 shadow-md w-full">
+        <nav className="fixed top-0 z-20 bg-linear-to-b from-primary/95 to-primary-dark/80 shadow-md w-full">
             <div className="max-w-6xl mx-4 lg:mx-auto">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}

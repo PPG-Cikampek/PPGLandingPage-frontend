@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import img4 from '../../../assets/images/img4.jpg';
-import img5 from '../../../assets/images/img5.jpg';
-import img6 from '../../../assets/images/img6.jpg';
-import img7 from '../../../assets/images/img7.jpg';
-import img8 from '../../../assets/images/img8.jpg';
-import img9 from '../../../assets/images/img9.jpg';
-import img10 from '../../../assets/images/img10.jpg';
-import img11 from '../../../assets/images/img11.jpg';
-
+import React, { useState, useEffect, useCallback } from "react";
+import img4 from "../../../assets/images/img4.jpg";
+import img5 from "../../../assets/images/img5.jpg";
+import img6 from "../../../assets/images/img6.jpg";
+import img7 from "../../../assets/images/img7.jpg";
+import img8 from "../../../assets/images/img8.jpg";
+import img9 from "../../../assets/images/img9.jpg";
+import img10 from "../../../assets/images/img10.jpg";
+import img11 from "../../../assets/images/img11.jpg";
 
 const Carousel = ({
     items = [
@@ -15,31 +14,31 @@ const Carousel = ({
             title: "",
             description: "",
             image: img4,
-            link: "/page3"
+            link: "/page3",
         },
         {
             title: "Second Slide",
             description: "Description for second slide",
             image: img5,
-            link: "/page2"
+            link: "/page2",
         },
         {
             title: "Third Slide",
             description: "Description for third slide",
             image: img6,
-            link: "/page3"
+            link: "/page3",
         },
         {
             title: "Fourth Slide",
             description: "Description for Fourth slide",
             image: img7,
-            link: "/page3"
+            link: "/page3",
         },
         {
             title: "Fourth Slide",
             description: "Description for Fourth slide",
             image: img8,
-            link: "/page3"
+            link: "/page3",
         },
         // {
         //     title: "Fourth Slide",
@@ -63,7 +62,7 @@ const Carousel = ({
     autoSlideInterval = 6000,
     showDots = true,
     showArrows = true,
-    onNavigate = (link) => window.location.href = link
+    onNavigate = (link) => (window.location.href = link),
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -99,7 +98,7 @@ const Carousel = ({
 
     const handleSlideClick = (e, link) => {
         // Get the closest parent with data-control attribute
-        const controlElement = e.target.closest('[data-control]');
+        const controlElement = e.target.closest("[data-control]");
 
         // Only navigate if the click is not on a control element
         if (!controlElement) {
@@ -120,7 +119,7 @@ const Carousel = ({
     }, [isPlaying, autoSlideInterval, nextSlide]);
 
     return (
-        <div className="relative w-full max-w-6xl mx-auto overflow-hidden md:rounded-md shadow-2xl ">
+        <div className="relative w-full max-w-6xl mx-auto overflow-hidden shadow-2xl ">
             {/* Main carousel container */}
             <div className="relative h-96 md:h-128">
                 <div
@@ -142,9 +141,7 @@ const Carousel = ({
                             />
                             {/* Content overlay */}
                             <div className="absolute bottom-0 w-full bg-linear-to-t from-black/85 to-transparent p-6">
-                                <h3 className="text-white">
-                                    {item.title}
-                                </h3>
+                                <h3 className="text-white">{item.title}</h3>
                                 <p className="w-96 text-white/90 truncate">
                                     {item.description}
                                 </p>
@@ -162,8 +159,18 @@ const Carousel = ({
                         onClick={previousSlide}
                         className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/30 hover:bg-white/50 transition-colors z-10"
                     >
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        <svg
+                            className="w-6 h-6 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M15 19l-7-7 7-7"
+                            />
                         </svg>
                     </button>
                     <button
@@ -171,8 +178,18 @@ const Carousel = ({
                         onClick={nextSlide}
                         className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/30 hover:bg-white/50 hover:cursor-pointer transition-colors z-10"
                     >
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <svg
+                            className="w-6 h-6 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                            />
                         </svg>
                     </button>
                 </>
@@ -185,12 +202,32 @@ const Carousel = ({
                 className="absolute bottom-4 right-4 p-2 rounded-full bg-white/30 hover:bg-white/50 hover:cursor-pointer transition-colors z-10"
             >
                 {isPlaying ? (
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6" />
+                    <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 9v6m4-6v6"
+                        />
                     </svg>
                 ) : (
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                        />
                     </svg>
                 )}
             </button>
@@ -206,10 +243,11 @@ const Carousel = ({
                             key={index}
                             data-control="dot"
                             onClick={() => goToSlide(index)}
-                            className={`w-2 h-2 rounded-full hover:cursor-pointer transition-all duration-300 ${index === currentIndex
-                                ? 'bg-white w-6'
-                                : 'bg-white/50 hover:bg-white/75'
-                                }`}
+                            className={`w-2 h-2 rounded-full hover:cursor-pointer transition-all duration-300 ${
+                                index === currentIndex
+                                    ? "bg-white w-6"
+                                    : "bg-white/50 hover:bg-white/75"
+                            }`}
                         />
                     ))}
                 </div>
