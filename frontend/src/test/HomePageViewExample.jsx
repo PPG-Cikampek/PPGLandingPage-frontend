@@ -2,12 +2,11 @@ import Carousel from "../../../shared/Components/UIElements/Carousel";
 import AnimatedComponent from "../../../shared/Components/Animation/AnimatedComponent";
 import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
-import ArticleCard from "../../../shared/Components/UIElements/ArticleCard";
+import { MagazineHeroSection } from "../../../shared/Components/UIElements/ArticlePreviewSections";
 import { latestNews } from "../../../data/latestNews";
 import { useArticlesQuery, useBrandQuery } from "../../../services/queries";
-import { MagazineHeroSection } from "@/shared/Components/UIElements/ArticlePreviewSections";
 
-const HomePageView = () => {
+const HomePageViewWithNewSection = () => {
     const {
         data: brand,
         isLoading: brandLoading,
@@ -87,11 +86,13 @@ const HomePageView = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-6xl w-full mx-auto mt-6 grid gap-4 grid-cols-1 px-4">
+
+            {/* New Creative Article Section */}
+            <AnimatedComponent animationType="fadeInUp">
                 <MagazineHeroSection articles={articles} />
-            </div>
+            </AnimatedComponent>
         </main>
     );
 };
 
-export default HomePageView;
+export default HomePageViewWithNewSection;

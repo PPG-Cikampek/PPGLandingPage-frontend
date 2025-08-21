@@ -21,7 +21,7 @@ export const useArticlesQuery = () => {
         queryKey: ["articles"],
         queryFn: async () => {
             const response = await api.get(
-                "/api/articles?sort[0]=publishedAt:desc&populate[coverImage][fields][0]=formats&fields[0]=title&fields[1]=description&pagination[pageSize]=5&pagination[page]=1&filters[publishedAt][$notNull]=true"
+                "/api/articles?sort[0]=publishedAt:desc&populate[coverImage][fields][0]=formats&populate[author][fields][0]=fullName&fields[0]=title&fields[1]=description&fields[2]=publishedAt&pagination[pageSize]=5&pagination[page]=1&filters[publishedAt][$notNull]=true"
             );
             return response.data.data;
         },

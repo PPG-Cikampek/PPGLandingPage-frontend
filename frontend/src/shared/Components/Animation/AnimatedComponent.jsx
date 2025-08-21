@@ -2,7 +2,12 @@ import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const AnimatedComponent = ({ children, animationType = "fadeIn" }) => {
+const AnimatedComponent = ({
+    children,
+    animationType = "fadeIn",
+    className = "",
+    ...rest
+}) => {
     const controls = useAnimation();
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -29,9 +34,11 @@ const AnimatedComponent = ({ children, animationType = "fadeIn" }) => {
     return (
         <motion.div
             ref={ref}
+            className={className}
             initial={initialStates[animationType]}
             animate={controls}
             transition={{ duration: 1.5 }}
+            {...rest}
         >
             {children}
         </motion.div>
