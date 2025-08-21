@@ -6,7 +6,7 @@ import {
     FloatingBubblesSection,
     Carousel3DSection,
     InfiniteScrollSection,
-} from "../shared/Components/UIElements/ArticlePreviewSections";
+} from "../user-public/homepage/components/ArticlePreviewSections";
 
 // Mock article data for demonstration
 const mockArticles = [

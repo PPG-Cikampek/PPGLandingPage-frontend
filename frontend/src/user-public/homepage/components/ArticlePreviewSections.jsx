@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { formatDateIndo } from "../../utils/date";
+import { useState, useRef, useEffect } from "react";
+import { formatDateIndo } from "../../../shared/utils/date";
 import {
     FiChevronLeft,
     FiChevronRight,
