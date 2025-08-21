@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useArticleQuery } from "../../../services/queries";
 import LoadingCircle from "../../../shared/Components/UIElements/LoadingCircle";
 import ErrorCard from "../../../shared/Components/UIElements/ErrorCard";
@@ -16,6 +17,29 @@ const ArticleDetailView = () => {
         error,
         refetch,
     } = useArticleQuery(documentId);
+
+    // Scroll to top when the page mounts or when documentId / loading state changes
+    useEffect(() => {
+        // Wait until loading is finished to avoid jumping during load
+        if (!isLoading) {
+            try {
+                window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+            } catch (e) {
+                // fallback for environments where window may be undefined or smooth not supported
+                if (typeof window !== "undefined") {
+                    try {
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth",
+                        });
+                    } catch (_err) {
+                        window.scrollTo(0, 0);
+                    }
+                }
+            }
+        }
+    }, [isLoading, documentId]);
 
     if (isLoading) {
         return (
