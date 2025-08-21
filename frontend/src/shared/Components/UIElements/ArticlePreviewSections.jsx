@@ -34,7 +34,7 @@ export const MagazineHeroSection = ({ articles = [] }) => {
     };
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 py-16">
+        <section className="w-full mx-auto px-4 py-8">
             <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">
                     Latest Stories
@@ -135,7 +135,7 @@ export const DiagonalTimelineSection = ({ articles = [] }) => {
     };
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 py-16 relative">
+        <section className="w-full mx-auto px-4 py-8 relative">
             <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">
                     Article Timeline
@@ -251,7 +251,7 @@ export const HexagonalGridSection = ({ articles = [] }) => {
     };
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 py-16">
+        <section className="w-full mx-auto px-4 py-8">
             <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">
                     Discover Articles
@@ -392,7 +392,7 @@ export const FloatingBubblesSection = ({ articles = [] }) => {
     ];
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 py-16 relative min-h-screen">
+        <section className="w-full mx-auto px-4 py-8 relative min-h-screen">
             <div className="text-center mb-16 relative z-20">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">
                     Floating Stories
@@ -592,7 +592,7 @@ export const Carousel3DSection = ({ articles = [] }) => {
     };
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 py-16">
+        <section className="w-full mx-auto px-4 py-8">
             <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-4">
                     Article Showcase
